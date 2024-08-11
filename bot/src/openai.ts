@@ -23,18 +23,16 @@ export async function ask(question: string) {
       O believers! Intoxicants, gambling, idols, and drawing lots for decisions1 are all evil of Satan’s handiwork. So shun them so you may be successful.
       https://quran.com/5/90
 
-       If there are quran verses, please also include quran.com links (example format: https://quran.com/1?startingVerse=5. If there are hadith references, please use links for sunnah.com listed below:
+       If there are quran verses, please also include quran.com links. If there are hadith references and you have valid URLs for it, please include sunnah.com links to reference it.
 
-          * Bukhari: https://sunnah.com/bukhari:7
+       Examples:
+          * Bukhari: https://sunnah.com/bukhari:8
           * Sahih Muslim: https://sunnah.com/muslim:8b
           * Sunan an-Nasa'i: https://sunnah.com/nasai:689
           * Sunan Abi Dawud: https://sunnah.com/abudawud:391
           * Jami' at-Tirmidhi: https://sunnah.com/tirmidhi:544
           * Sunan ibn Majah: https://sunnah.com/ibnmajah:1846
           * Muwatta Malik: https://sunnah.com/urn/504440
-        
-       Example format for bukhari: https://sunnah.com/bukhari:5589
-
         `
       },
       {
