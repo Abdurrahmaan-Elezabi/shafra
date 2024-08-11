@@ -4,20 +4,29 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+
+    <title>Vite App</title><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box with List Items</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div id="app">
       <div>
+        <div id="list" class="box">
+          <ul id="pastAnswers">
+          </ul>
+        </div>
+        <script src="index.js"></script>
         <form id="question-form">
           <label for="language">Language: </label>
           <select id="language" name="language">
             <option value="english">English</option>
-            <option value="arabic">Arabic</option>
+            <option value="arabic">العربية</option>
           </select>
-          <h1>Ask a question</h1>
+          <h1 id="askTitle">Ask a question</h1>
           <textarea name="question"></textarea>
-          <button>Ask</button>
+          <button id="askButton">Ask</button>
           <div id="spinner" class="sk-cube-grid">
             <div class="sk-cube sk-cube1"></div>
             <div class="sk-cube sk-cube2"></div>
