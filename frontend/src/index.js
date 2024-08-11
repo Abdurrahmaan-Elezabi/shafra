@@ -2,12 +2,20 @@ import './style.css';
 
 const form = document.getElementById('question-form');
 const answerText = document.getElementById('answer');
+const spinner = document.getElementById('spinner');
+spinner.style.visibility = "hidden";
+const pastAnswers = [];
 
 // When the form's submit button is pressed, do the following:
 // 1. Get the question from the text box
 // 2. Send an HTTP request to the server to get a response to the question
 // 3. Alert the response as a popup
 form.addEventListener('submit', async (event) => {
+  spinner.style.visibility = "visible";
+  if(answerText.innerHTML != ""){
+    pastAnswers[pastAnswers.length] = answerText.innerHTML;
+  }
+  answerText.innerHTML = "";
   event.preventDefault();
   const formData = new FormData(form);
   const question = formData.get('question');
@@ -26,5 +34,7 @@ form.addEventListener('submit', async (event) => {
     answerText.innerHTML = answer;
   } catch (error) {
     console.error(error);
+  } finally{
+    spinner.style.visibility = "hidden";
   }
 });
