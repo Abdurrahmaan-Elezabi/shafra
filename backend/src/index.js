@@ -4,7 +4,7 @@ const cors = require('cors');
 const express = require('express')
 
 // Create an OpenAI client using your API key
-const client = new openai('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');
+const client = new openai('');
 
 /*
 const response = await openai.completions.create({
