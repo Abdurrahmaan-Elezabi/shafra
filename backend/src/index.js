@@ -3,8 +3,7 @@ const openai = require('openai');
 const cors = require('cors');
 const express = require('express')
 
-// Create an OpenAI client using your API key
-const client = new openai('');
+//const client = new openai('');
 
 /*
 const response = await openai.completions.create({
