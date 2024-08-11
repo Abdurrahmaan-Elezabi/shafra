@@ -11,6 +11,7 @@ form.addEventListener('submit', async (event) => {
   event.preventDefault();
   const formData = new FormData(form);
   const question = formData.get('question');
+  const selectedLanguage = formData.get('language');
 
   try {
     const response = await fetch('/api/ask', {
@@ -18,7 +19,7 @@ form.addEventListener('submit', async (event) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ question })
+      body: JSON.stringify({ question, selectedLanguage })
     });
     const json = await response.json();
     const { answer } = json;

@@ -9,6 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post('/api/ask', async (req, res) => {
   const question = req.body.question;
+  const selectedLanguage = req.body.selectedLanguage;
 
   if (!question) {
     res.status(400).json({
@@ -18,7 +19,7 @@ app.post('/api/ask', async (req, res) => {
   }
 
   try {
-    const answer = await ask(question);
+    const answer = await ask(question, selectedLanguage);
     res.status(200).json({
       status: 'success',
       answer
