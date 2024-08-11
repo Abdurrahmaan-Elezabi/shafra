@@ -17,10 +17,10 @@ export const ChatMessage = ({ message }: IChatMessageProps) => {
   const isBot = message.role !== MessageRole.USER;
 
   return (
-    <div className="mt-4">
-      <div className="flex items-center">
+    <div className="mt-10">
+      <div className="flex">
         <Avatar shape="circle" className="mr-4">
-          <div className="bg-neutral text-neutral-content h-10 w-10">
+          <div className="bg-neutral text-neutral-content h-10 w-10 border border-gray-500">
             {isBot ? (
               <FontAwesomeIcon icon={faRobot} />
             ) : message.userInfo?.firstName && message.userInfo?.lastName ? (
@@ -34,10 +34,10 @@ export const ChatMessage = ({ message }: IChatMessageProps) => {
         </Avatar>
         <h4 className="font-semibold select-none">{isBot ? "MAPS AI Assistant" : "Me"}</h4>
       </div>
-      <div className="ml-16 mt-4">
+      <div className="ml-14 px-1">
         <div ref={messageRef}>{message.message}</div>
         {isBot && (
-          <div className="mt-4">
+          <div className="mt-1">
           </div>
         )}
       </div>
