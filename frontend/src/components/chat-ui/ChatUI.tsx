@@ -38,10 +38,13 @@ export const ChatUI = ({
       </div>
     </nav>
       <div className="justify-center w-full overflow-y-auto bg-black-100">
-        <div style={{ height: "calc(100vh - 112px)" }}>
+        <div 
+          style={{ height: "calc(100vh - 112px)" }}
+          className="flex w-[83vw] justify-center overflow-y-auto bg-black-800"
+        >
           <div
             ref={chatConversationsContainerRef}
-            className="flex w-[80vw] justify-center overflow-y-auto pb-8 px-24 bg-black-800"
+            className="flex w-full justify-center overflow-y-auto pb-8 px-24 bg-black-800"
             style={{ maxHeight: "calc(100vh - 256px)" }}
           >
             <ChatConversations
