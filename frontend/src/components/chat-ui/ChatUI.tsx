@@ -24,7 +24,7 @@ export const ChatUI = ({
 
   return (
     <>
-      <nav className="bg-gray-700">
+      <nav className="bg-blue-900">
       <div className="items-center mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center h-16">
           <div className="flex items-center">
@@ -37,7 +37,7 @@ export const ChatUI = ({
         </div>
       </div>
     </nav>
-      <div className="justify-center w-full overflow-y-auto bg-black-100">
+      <div className="justify-center w-full overflow-y-auto py-3 bg-black-100">
         <div 
           style={{ height: "calc(100vh - 112px)" }}
           className="flex w-[83vw] justify-center overflow-y-auto bg-black-800"
@@ -45,7 +45,7 @@ export const ChatUI = ({
           <div
             ref={chatConversationsContainerRef}
             className="flex w-full justify-center overflow-y-auto pb-8 px-24 bg-black-800"
-            style={{ maxHeight: "calc(100vh - 256px)" }}
+            style={{ maxHeight: "calc(100vh - 268px)" }}
           >
             <ChatConversations
               conversations={conversations}
@@ -53,14 +53,14 @@ export const ChatUI = ({
               chatConversationsContainerRef={chatConversationsContainerRef}
             />
           </div>
-          <div className="absolute bottom-20 left-0 w-full">
-            <ChatInput
-              disabled={disabled}
-              customSubmitIcon={customSubmitIcon}
-              onSubmit={onSubmit}
-              placeholder={placeholder}
-            />
-          </div>
+        </div>
+        <div className="absolute bottom-20 left-0 w-full">
+          <ChatInput
+            disabled={disabled}
+            customSubmitIcon={customSubmitIcon}
+            onSubmit={onSubmit}
+            placeholder={placeholder}
+          />
         </div>
       </div>
     </>

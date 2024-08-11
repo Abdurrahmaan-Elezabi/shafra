@@ -14,7 +14,7 @@ function App() {
       id: "1",
       role: MessageRole.ASSISTANT,
       message:
-        "I am an AI based Chat Assistant.  Please ask me a question related to Islam.",
+        "I am an AI based Chat Assistant.  Please ask me questions related to Islam.",
     }
   ]);
   
