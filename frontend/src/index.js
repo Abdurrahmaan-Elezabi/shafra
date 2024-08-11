@@ -23,9 +23,7 @@ form.addEventListener('submit', async (event) => {
     const json = await response.json();
     const { answer } = json;
     console.log(answer);
-    console.log(answer);
-    console.log(answer);
-    answerText.textContent = `Answer: ${answer}`;
+    answerText.innerHTML = `Answer: ${answer}`;
   } catch (error) {
     console.error(error);
   }
