@@ -4,6 +4,7 @@ import { Button, Textarea } from "react-daisyui";
 import { IChatInputProps } from "../../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+
 export const ChatInput = ({
   disabled,
   onSubmit,
@@ -37,26 +38,28 @@ export const ChatInput = ({
 
   return (
     <div className="flex justify-center items-center">
-      <Textarea
+      <Textarea 
+        id="message"
         ref={textAreaRef}
+        style={{ padding:'12px' }}
         bordered
-        className={`resize-none w-2/3 max-h-48 overflow-y-auto`}
+        className={`rounded-lg border border-gray-300 text-sm resize-none w-2/3 h-24 overflow-y-auto dark:text-white dark:focus:border-blue-500`}
         onKeyUp={handleEnterKey}
         placeholder={placeholder ? placeholder : "Type here to chat"}
         disabled={disabled}
       ></Textarea>
       <Button
-        shape={"square"} 
-        title="Title" 
-        type="submit"
-        className="absolute ml-[58%]"
+        shape={"square"}
+        className="absolute ml-[60%] h-24 w-8 text-xl bg-black-600"
         disabled={disabled}
         onClick={handleSubmit}
       >
         {customSubmitIcon ? (
           customSubmitIcon
         ) : (
-          <FontAwesomeIcon icon={faMagicWandSparkles} />
+          <FontAwesomeIcon 
+          className="absolute ml-[60%] h-24 w-8"
+          icon={faMagicWandSparkles} />
         )}
       </Button>
     </div>

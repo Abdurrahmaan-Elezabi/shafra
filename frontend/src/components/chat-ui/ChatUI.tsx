@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { ChatConversations } from "./ChatConversations";
 import { ChatInput } from "./ChatInput";
 import { IChatUIProps } from "../../types";
+import { Navbar, Nav } from 'rsuite';
 
 export const ChatUI = ({
   disabled,
@@ -12,28 +13,53 @@ export const ChatUI = ({
   onSubmit,
 }: IChatUIProps) => {
   const chatConversationsContainerRef = useRef<HTMLDivElement>(null);
+  
+  const CustomNavbar = ({}) => {
+    return (
+      <Navbar >
+        <Navbar.Brand href="#">RSUITE</Navbar.Brand>
+      </Navbar>
+    );
+  };
 
   return (
-    <div style={{ height: "calc(100vh - 68px)" }}>
-      <div
-        ref={chatConversationsContainerRef}
-        className="flex w-full justify-center overflow-y-auto pb-8"
-        style={{ maxHeight: "calc(100vh - 250px)" }}
-      >
-        <ChatConversations
-          conversations={conversations}
-          isQuerying={isQuerying}
-          chatConversationsContainerRef={chatConversationsContainerRef}
-        />
+    <>
+      <nav className="bg-gray-700">
+      <div className="items-center mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center h-16">
+          <div className="flex items-center">
+            <div className="items-center hidden md:block">
+              <div className="items-center flex items-baseline">
+                <a href="#" className="items-center text-gray-300 hover:bg-gray-700 hover:text-white rounded-md text-m font-medium">AI Assistant</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="absolute bottom-12 left-0 w-full">
-        <ChatInput
-          disabled={disabled}
-          customSubmitIcon={customSubmitIcon}
-          onSubmit={onSubmit}
-          placeholder={placeholder}
-        />
+    </nav>
+      <div className="justify-center w-full overflow-y-auto bg-black-100">
+        <div style={{ height: "calc(100vh - 112px)" }}>
+          <div
+            ref={chatConversationsContainerRef}
+            className="flex w-[80vw] justify-center overflow-y-auto pb-8 px-24 bg-black-800"
+            style={{ maxHeight: "calc(100vh - 256px)" }}
+          >
+            <ChatConversations
+              conversations={conversations}
+              isQuerying={isQuerying}
+              chatConversationsContainerRef={chatConversationsContainerRef}
+            />
+          </div>
+          <div className="absolute bottom-20 left-0 w-full">
+            <ChatInput
+              disabled={disabled}
+              customSubmitIcon={customSubmitIcon}
+              onSubmit={onSubmit}
+              placeholder={placeholder}
+            />
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
