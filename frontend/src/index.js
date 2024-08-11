@@ -6,6 +6,9 @@ const spinner = document.getElementById('spinner');
 const listBox = document.getElementById('pastAnswers');
 spinner.style.visibility = "hidden";
 const pastAnswers = [];
+const languageDropdown = document.getElementById('language');
+const askTitle = document.getElementById('askTitle');
+const askButton = document.getElementById('askButton');
 
 // When the form's submit button is pressed, do the following:
 // 1. Get the question from the text box
@@ -24,6 +27,7 @@ form.addEventListener('submit', async (event) => {
   event.preventDefault();
   const formData = new FormData(form);
   const question = formData.get('question');
+  const selectedLanguage = formData.get('language');
 
   try {
     const response = await fetch('/api/ask', {
@@ -31,7 +35,7 @@ form.addEventListener('submit', async (event) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ question })
+      body: JSON.stringify({ question, selectedLanguage })
     });
     const json = await response.json();
     const { answer } = json;
@@ -40,5 +44,16 @@ form.addEventListener('submit', async (event) => {
     console.error(error);
   } finally{
     spinner.style.visibility = "hidden";
+  }
+});
+
+languageDropdown.addEventListener('change', async (event) => {
+  const selectedLanguage = event.target.value;
+  if (selectedLanguage === 'arabic') {
+    askTitle.textContent = 'إسأل سؤالاً';
+    askButton.textContent = 'إسأل';
+  } else {
+    askTitle.textContent = 'Ask a question';
+    askButton.textContent = 'Ask';
   }
 });
