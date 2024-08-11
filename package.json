@@ -13,5 +13,10 @@
   ],
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "openai": "^4.55.4",
+    "rsuite": "^5.69.0"
   }
 }
