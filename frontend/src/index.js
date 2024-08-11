@@ -3,6 +3,7 @@ import './style.css';
 const form = document.getElementById('question-form');
 const answerText = document.getElementById('answer');
 const spinner = document.getElementById('spinner');
+const listBox = document.getElementById('pastAnswers');
 spinner.style.visibility = "hidden";
 const pastAnswers = [];
 
@@ -13,6 +14,10 @@ const pastAnswers = [];
 form.addEventListener('submit', async (event) => {
   spinner.style.visibility = "visible";
   if(answerText.innerHTML != ""){
+    const pastAnswer = document.createElement('li');
+    pastAnswer.textContent = answerText.textContent;
+    console.log(pastAnswer);
+    listBox.appendChild(pastAnswer);
     pastAnswers[pastAnswers.length] = answerText.innerHTML;
   }
   answerText.innerHTML = "";
@@ -30,7 +35,6 @@ form.addEventListener('submit', async (event) => {
     });
     const json = await response.json();
     const { answer } = json;
-    console.log(answer);
     answerText.innerHTML = answer;
   } catch (error) {
     console.error(error);
