@@ -1,0 +1,17 @@
+{
+  "name": "shafra",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n \"Frontend,Backend\" -c \"blue.bold,green.bold\" \"npm:dev:frontend\" \"npm:dev:backend\"",
+    "dev:frontend": "npm run dev --workspace=@shafra/frontend",
+    "dev:backend": "npm run dev --workspace=@shafra/backend"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
