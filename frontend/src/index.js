@@ -16,17 +16,10 @@ const askButton = document.getElementById('askButton');
 // 3. Alert the response as a popup
 form.addEventListener('submit', async (event) => {
   spinner.style.visibility = "visible";
-  if(answerText.innerHTML != ""){
-    const pastAnswer = document.createElement('li');
-    pastAnswer.textContent = answerText.textContent;
-    console.log(pastAnswer);
-    listBox.appendChild(pastAnswer);
-    pastAnswers[pastAnswers.length] = answerText.innerHTML;
-  }
-  answerText.innerHTML = "";
-  event.preventDefault();
   const formData = new FormData(form);
   const question = formData.get('question');
+  answerText.innerHTML = "";
+  event.preventDefault();
   const selectedLanguage = formData.get('language');
 
   try {
@@ -44,6 +37,14 @@ form.addEventListener('submit', async (event) => {
     console.error(error);
   } finally{
     spinner.style.visibility = "hidden";
+    const pastQuestion = document.createElement('li');
+    const pastAnswer = document.createElement('li');
+
+    pastAnswer.textContent = answerText.textContent;
+    pastQuestion.textContent = question;
+    listBox.appendChild(pastQuestion);
+    listBox.appendChild(pastAnswer);
+    pastAnswers[pastAnswers.length] = answerText.innerHTML;
   }
 });
 
