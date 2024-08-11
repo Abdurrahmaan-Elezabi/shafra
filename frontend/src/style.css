@@ -81,6 +81,9 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+input {
+  padding: 1rem;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -93,4 +96,16 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+#question-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#question-form input {
+  width: 100%;
 }

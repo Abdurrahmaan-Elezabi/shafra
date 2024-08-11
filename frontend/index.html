@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,7 +7,16 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div>
+        <form id="question-form">
+          <h1>Ask a question</h1>
+          <textarea name="question" /></textarea>
+          <button>Ask</button>
+        </form>
+        <p id="answer">Answer: </p>
+      </div>
+    </div>
     <script type="module" src="/src/index.js"></script>
   </body>
 </html>
